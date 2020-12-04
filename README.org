@@ -1,0 +1,23 @@
+
+* PlayerEffects
+
+Admin UI for controlling player status effects.
+
+PlayerEffects is built on these great libraries:
+
+- [[https://github.com/Phoenix616/InventoryGui][InventoryGui]]
+- [[https://github.com/aikar/commands][Annotation Command Framework]]
+
+** Installation
+
+Just copy the JAR to your server's `plugins/` directory.
+
+** Commmands
+
+- =/pe [player]=
+
+Manage the named player's status effects. If no player name is provided, show a menu for selecting a player.
+
+** Permissions
+
+- *playereffects.pe* : Can use the =/pe= command.

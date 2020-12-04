@@ -1,0 +1,43 @@
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+}
+
+group 'com.github.dustinlacewell'
+version '0.0.1'
+
+// === Change this to match the workspace defined inside the start.sh script.
+String workspace = '.papermc'
+
+targetCompatibility = sourceCompatibility = JavaVersion.VERSION_11
+
+repositories() {
+    mavenCentral()
+    maven { url 'https://papermc.io/repo/repository/maven-public/' }
+    maven { url "https://repo.aikar.co/content/groups/aikar/" }
+    maven { url 'https://repo.minebench.de/' }
+}
+
+compileJava {
+    options.compilerArgs += ["-parameters"]
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly group: 'com.destroystokyo.paper', name: 'paper-api', version: '1.16.4-R0.1-SNAPSHOT'
+    implementation 'org.javatuples:javatuples:1.2'
+    implementation 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
+    implementation 'de.themoep:inventorygui:1.4.2-SNAPSHOT'
+}
+
+shadowJar {
+    String userHome = System.properties['user.home']
+    destinationDirectory = file("$userHome/$workspace/plugins")
+    archiveFileName = project.name + "-" + version + ".jar"
+    relocate 'co.aikar.commands', 'com.github.dustinlacewell.PlayerEffects.acf'
+    relocate 'co.aikar.locales', 'com.github.dustinlacewell.PlayerEffects.locales'
+}
+
+build.dependsOn shadowJar
+

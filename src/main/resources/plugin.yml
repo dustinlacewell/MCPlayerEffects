@@ -1,0 +1,10 @@
+main: "com.github.dustinlacewell.playereffects.PlayerEffects"
+version: "0.0.1-SNAPSHOT"
+name: "PlayerEffects"
+api-version: 1.16
+commands:
+  pe:
+    description: Manage player potion effects.
+    usage: /pe [player]
+    permission: playereffects.pe
+    permission-message: You don't have permission.
