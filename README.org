@@ -3,6 +3,8 @@
 
 Admin UI for controlling player status effects.
 
+[[./screenshot.png]]
+
 PlayerEffects is built on these great libraries:
 
 - [[https://github.com/Phoenix616/InventoryGui][InventoryGui]]
